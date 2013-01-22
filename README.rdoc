@@ -31,6 +31,17 @@ Or manually add a "Join Mailing List" checkbox to your new registration form:
 
   <%=form.check_box :join_mailing_list%>
 
+== Allow additional options for list subscription call
+
+  class User < ActiveRecord::Base
+  
+    # ...
+  
+    def mailchimp_list_subscribe_options
+      {'FNAME' => first_name, 'LNAME' => last_name}
+    end
+  end
+
 == Configuration
 
 Create an initializer, and set your MailChimp API key.  To generate a new API key, go to the account tab in your
