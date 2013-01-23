@@ -72,7 +72,7 @@ module Devise
 
       # Commit the user to the mailing list if they have selected to join
       def commit_mailing_list_join
-        add_to_mailchimp_list(mailchimp_lists_to_join) if @join_mailing_list
+        add_to_mailchimp_list(mailchimp_lists_to_join) if join_mailing_list
       end
 
       # mapper that helps convert list names to mailchimp ids
