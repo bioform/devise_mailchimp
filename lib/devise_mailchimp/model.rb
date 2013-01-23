@@ -33,7 +33,7 @@ module Devise
       extend ActiveSupport::Concern
 
       included do
-        after_create :commit_mailing_list_join
+        after_save :commit_mailing_list_join, :if => proc { |l| l.confirmed_at_changed? && l.confirmed_at_was.nil? }
       end
 
       # Set this to true to have the user automatically join the mailchimp_lists_to_join
